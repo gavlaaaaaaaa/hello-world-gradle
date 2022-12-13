@@ -13,6 +13,6 @@ jobs:
       # Use the output from the build step to upload the jar file
       - name: Upload artifact
         uses: actions/upload-artifact@v3
-          with:
-            name: jar-file
-            path: ${{ steps.build.outputs.jar-location }}
+        with:
+          name: jar-file
+          path: ${{ steps.build.outputs.jar-location }}
