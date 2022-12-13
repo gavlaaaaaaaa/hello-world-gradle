@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build the gradle project
     steps:
+      - uses: actions/checkout@v3
       - name: build gradle project step
         id: build
         uses: gavlaaaaaaaa/gradle-github-action@v1
