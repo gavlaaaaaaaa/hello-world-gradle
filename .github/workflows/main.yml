@@ -1,0 +1,18 @@
+on: [push]
+
+jobs:
+  gradle_build_job:
+    runs-on: ubuntu-latest
+    name: Build the gradle project
+    steps:
+      - name: build gradle project step
+        id: build
+        uses: gavlaaaaaaaa/gradle-github-actionv1
+        with:
+          option: '--no-build-cache'
+      # Use the output from the build step to upload the jar file
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+          with:
+            name: jar-file
+            path: ${{ steps.build.outputs.jar-location }}
