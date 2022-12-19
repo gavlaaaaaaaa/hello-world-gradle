@@ -1,4 +1,4 @@
-on: [push]
+on: [push,pull_request]
 
 jobs:
   gradle_build_job:
@@ -13,6 +13,7 @@ jobs:
           option: '--no-build-cache'
       # Use the output from the build step to upload the jar file
       - name: Upload artifact
+        if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v3
         with:
           name: jar-file
